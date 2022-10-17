@@ -60,18 +60,19 @@ def get_first_date_of_month_with_data(stocks_data):
 
 # ----------------------------------------------------------------------------------------------------------------------
 
-ticker_list = pd.read_csv('stocks.csv')
+ticker_list = pd.read_csv('ticker.csv')
 
-sector = "Communication Services"
+sector = "Consumer Cyclical"
 tickers = []
-for index, row in stock_list.iterrows():
+
+for index, row in ticker_list.iterrows():
     if row['Sector'] == sector and row['Industry'] != "Shell Companies":
         tickers.append(row['Ticker'])
 
-# print(stock_list)
+print(tickers)
 stock_monthly_price_change_data = {}
 
-print(stocks)
+
 
 for ticker in tickers:
     if pd.isna(ticker):

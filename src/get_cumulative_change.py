@@ -1,6 +1,6 @@
 import json
 
-f = open('../data/orig/Real Estate.json')
+f = open('../data/orig/Consumer Cyclical.json')
 
 data = json.load(f)
 
@@ -13,6 +13,6 @@ for i in data:
 
 f.close()
 
-with open("../data/cumulative/Real Estate.json", "w") as outfile:
+with open("../data/cumulative/Consumer Cyclical.json", "w") as outfile:
     json.dump(cumulative_change, outfile)
 
