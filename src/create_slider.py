@@ -4,7 +4,7 @@ import plotly.express as px
 
 def get_updated_dataframe(sector):
     df = pd.read_json('../data/cumulative/' + sector + '.json', typ='dictionary')
-    df_mod = pd.DataFrame({'date': df.index, 'value': df.values})
+    df_mod = pd.DataFrame({'date': df.index, 'price change': df.values})
     df_mod["sector"] = sector
     return df_mod
 
@@ -32,9 +32,9 @@ print(final_df)
 # generate the plot
 fig = px.bar(
     final_df,
-    x="value",
+    x="price change",
     y="sector",
-    text="value",
+    text="price change",
     orientation="h",
     animation_frame="month",
 )
@@ -46,6 +46,7 @@ for f in fig.frames:
     for t in f["data"]:
         t["texttemplate"] = "%{text:4s}"
 
-fig.update_layout(xaxis={"range": [-10, final_df["value"].max() * 1.25]})
+fig.update_layout(xaxis={"range": [-10, final_df["price change"].max() * 1.25]})
+fig.update_layout(font_size=14)
 #fig.update_layout(yaxis={'categoryorder':'total ascending'})
 fig.show()
