@@ -4,3 +4,5 @@
 * get_monthly_change.py - To get for a particular sector change in monthly prices
 * get_cumulative_change.py - To get cumulative monthly change for each sector
 * create_slider.py - To create the bar chart slider animation using the data in data/cumulative folder
+
+https://www.youtube.com/watch?v=MAlYPeWVESA&feature=emb_imp_woyt
