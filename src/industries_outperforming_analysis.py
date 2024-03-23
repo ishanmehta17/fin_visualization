@@ -90,7 +90,7 @@ def get_data():
 
 
 def get_industries_outperforming_sorted():
-    industryToAllStocks = \
+    industryToAllStocksCount = \
         {'Software - Application': 265, 'Computer - Hardware': 39, 'Biotechnology': 725,
          'Pollution & Treatment Controls': 17, 'Engineering & Construction': 37, 'Medical - Instruments & Supplies': 56,
          'Chemicals - Specialty': 55, 'Restaurants': 57, 'REIT - Mortgage': 93, 'Shell Companies': 432,
@@ -138,7 +138,7 @@ def get_industries_outperforming_sorted():
          'Confectioners': 4, 'Paper & Forest Products': 6, 'Pharmaceuticals - Major': 1, 'Railroads': 13,
          'Investment - Banking & Investment Services': 1, 'Investment - Banks/Brokers': 1,
          'Manufacturing - Miscellaneous': 1}
-    industyToAllBeatingStocks = \
+    industyToAllBeatingStocksCount = \
         {'Biotechnology': 25, 'Engineering & Construction': 14, 'Shell Companies': 7, 'Construction - Residential': 17,
          'Semiconductors': 9, 'Drug Manufacturers - Specialty & Generic': 4, 'Electrical - Equipment & Parts': 8,
          'Building - Products & Equipment': 16, 'Oil & Gas - Midstream': 5, 'Pollution & Treatment Controls': 1,
@@ -172,9 +172,9 @@ def get_industries_outperforming_sorted():
          'Communications - Equipment': 1}
 
     result = {}
-    for key in industryToAllStocks:
-        if key in industryToAllStocks and key in industyToAllBeatingStocks:
-            result[key] = round(industyToAllBeatingStocks[key] / industryToAllStocks[key], 4)
+    for key in industryToAllStocksCount:
+        if key in industryToAllStocksCount and key in industyToAllBeatingStocksCount:
+            result[key] = round(industyToAllBeatingStocksCount[key] / industryToAllStocksCount[key], 4)
 
     sorted_dict = dict(sorted(result.items(), key=lambda item: item[1], reverse=True))
     for key in sorted_dict:
